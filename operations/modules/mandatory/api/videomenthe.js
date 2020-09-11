@@ -123,7 +123,7 @@ module.exports = {
 
 		let newPath = decodeURI(req.path);
 		newPath = newPath.split("/newfolder").pop();
-		newPath = newPath == "/" ? global.SERVER_FILES_DIR : newPath;
+		newPath = (newPath == "/" || newPath == "") ? global.SERVER_FILES_DIR : newPath;
 		console.log(newPath + req.body.foldername);
 		fs.mkdirSync(path.resolve(newPath + req.body.foldername) , { recursive: true })
 
