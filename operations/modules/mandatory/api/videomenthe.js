@@ -74,7 +74,8 @@ module.exports = {
 
 	downloadFile : (route, req, res)=>{
 
-		return res.status(200).download(path.resolve(root_path + req.path.split("/download").pop()));
+		let newPath = decodeURI(req.path);
+		return res.status(200).download(path.resolve(root_path + newPath.split("/download").pop()));
 
 	},
 
