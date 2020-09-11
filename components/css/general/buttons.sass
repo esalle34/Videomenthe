@@ -1,0 +1,75 @@
+@mixin btn-border($color)
+	border : solid 2px $color
+@mixin background($color)
+	background : $color
+
+@mixin btn($color, $secondaryColor, $boxShadow)
+
+	color: $color
+	@include btn-border($color)
+	@include background($secondaryColor)
+
+	&:hover
+		color: $secondaryColor
+		@include btn-border($color)
+		@include background($color)
+		box-shadow: $boxShadow
+
+	&.btn-margin
+		margin-left: auto
+		margin-right: 1em
+
+	&:not(:disabled)
+
+		&:not(.disabled)
+
+			&:active
+				color: $secondaryColor
+				@include btn-border($color)
+				@include background($color)
+				box-shadow: $boxShadow
+
+				&:focus
+					box-shadow: $boxShadow
+
+	&:active
+		color: $secondaryColor
+		@include btn-border($color)
+		@include background($color)
+		box-shadow: $boxShadow
+
+	&:focus
+		color: $secondaryColor
+		@include btn-border($color)
+		@include background($color)
+		box-shadow: $boxShadow
+
+.btn-append
+	@include btn($secondary-color, $default, $main-shadow)
+	width: 3em
+	cursor: auto !important
+.btn-menu
+	@include btn($default,$main-color, $main-shadow)
+	cursor: pointer !important
+	font-family: Roboto-Bold
+
+.btn-append.action
+	@include btn($main-color, $default, $main-shadow)
+	cursor: pointer !important
+
+.input-hasError + .input-group-append > .btn-append
+	@include btn($danger-color, $default, $danger-color-bg)
+	width: 3em
+	cursor: auto !important
+
+.btn-prepend
+	@include btn($main-color, $default, $main-shadow)
+	width: 3em
+	cursor: auto !important
+
+.btn-primary
+	@include btn($valid-color, $default, $valid-shadow)
+.btn-main
+	@include btn($main-color, $default, $valid-shadow)
+.btn-danger
+	@include btn($danger-color-bg, $default, $valid-shadow)

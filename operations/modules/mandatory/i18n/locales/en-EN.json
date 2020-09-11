@@ -1,0 +1,20 @@
+{
+
+	"Add file here" : "Add file here",
+	"Add new folder here" : "Add new folder here",
+	"Send" : "Send",
+	"Back" : "Back",
+	"Download" : "Download",
+	"Remove" : "Remove",
+	"Oups, an error occured" : "Oups, an error occured",
+	"Error 500" : "Error 500",
+	"Unauthorized Access" : "Unauthorized Access",
+	"This field is required" : "This field is required",
+	"This field needs at least %s character" : {
+		"one" : "This field needs at least %s character",
+		"other" : "This field needs at least %s characters"
+	},
+	"You do not have permission to access this page" : "You do not have permission to access this page",
+	"Did you add the callback of this route ? " : "Did you add the callback of this route ? "
+
+}

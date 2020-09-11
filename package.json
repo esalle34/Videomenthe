@@ -1,0 +1,67 @@
+{
+  "name": "Videomenthe",
+  "version": "1.0.0",
+  "description": "Videomenthe App",
+  "main": "webpack.config.js",
+  "scripts": {
+    "development-process": "webpack --mode development",
+    "production-process": "webpack --mode production",
+    "dev": "set NODE_ENV=development&& babel-node start.js",
+    "prod": "set NODE_ENV=production&& babel-node start.js",
+    "build": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esalle34/Videomenthe"
+  },
+  "keywords": [
+    "Eric Salle",
+    "Videomenthe"
+  ],
+  "author": "Eric Salle",
+  "license": "© Eric Salle 2020. All rights reserved",
+  "bugs": {
+    "url": "https://github.com/esalle34/Videomenthe/issues"
+  },
+  "homepage": "https://github.com/esalle34/Videomenthe#readme",
+  "devDependencies": {
+    "bootstrap": "^4.5.0",
+    "react-lazyload": "^2.6.5",
+    "react-parallax": "^3.0.3",
+    "react-slick": "^0.25.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.1",
+    "webpack-fix-style-only-entries": "^0.5.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "css-loader": "^3.2.0",
+    "file-loader": "^5.0.2",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.0.1",
+    "babel-loader": "^8.0.6",
+    "jquery": "^3.5.1",
+    "sass": "^1.26.10",
+    "slick-carousel": "^1.8.1",
+    "vanilla-lazyload": "^16.1.0",
+    "superagent": "^5.1.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-plugin-root-import": "^6.5.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "js-sha512": "^0.8.0",
+    "livereload": "^0.9.1",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "serve-favicon": "^2.5.0"
+  }
+}

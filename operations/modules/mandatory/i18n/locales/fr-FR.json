@@ -1,0 +1,18 @@
+{
+	"Add file here" : "Ajouter un fichier ici",
+	"Add new folder here" : "Ajouter un nouveau dossier ici",
+	"Send" : "Envoyer",
+	"Back" : "Retour",
+	"Download" : "Télécharger",
+	"Remove" : "Supprimer",
+	"Oups, an error occured" : "Oups, une erreur est survenue",
+ 	"Error 500" : "Erreur 500",
+	"Unauthorized Access" : "Accès interdit",
+	"This field is required" : "Ce champ est requis",
+	"This field needs at least %s character" : {
+		"one" : "Ce champ nécessite au moins %s caractère",
+		"other" : "Ce champ nécessite au moins %s caractères"
+	},
+	"You do not have permission to access this page" : "Vous n'avez pas la permission pour accéder à cette page",
+	"Did you add the callback of this route ? " : "Avez vous rajouter la méthode associée à cette route ? "
+}
