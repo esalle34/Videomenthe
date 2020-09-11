@@ -1,6 +1,7 @@
 const path = require('path');
 const root_path = path.dirname(require.main.filename);
 const global = require(path.resolve(root_path + "/global"))();
+const theme = require(path.resolve(root_path + "/theme")).init();
 const view_service = require(path.resolve(global.MODULE_VIEW));
 const form_service = require(path.resolve(global.MODULE_FORM));
 const fs = require('fs');
@@ -31,6 +32,7 @@ module.exports = {
 			enctype : "multipart/form-data",
 			els : []
 		}, file_inputs);
+			file_form = view_service.addNodeParent(file_form, view_service.getElementFromRegistry({libelle : "div", className :"col-12 col-sm"}));
 
 		let folder_form = form_service.addForm({
 			id:"newfolder-form",
@@ -42,11 +44,12 @@ module.exports = {
 			enctype : "multipart/form-data",
 			els : []
 		}, folder_inputs)
+			folder_form = view_service.addNodeParent(folder_form, view_service.getElementFromRegistry({libelle : "div", className :"col-12 col-sm"}));
 
 		let body = view_service.addNodeParent(view_service.addNodeSibling(file_form, folder_form), view_service.getElementFromRegistry({libelle : "div", className :"col-12 col-sm"}))
 		h1 = view_service.addNodeParent(h1, view_service.getElementFromRegistry({libelle:"div", className : "col-12"}))
 		body = view_service.addNodeSibling(h1, body);
-		fileList = view_service.addNodeParent(fileList, view_service.getElementFromRegistry({libelle:"div", className:"col-12 col-sm"}))
+		fileList = view_service.addNodeParent(fileList, view_service.getElementFromRegistry({libelle : "div", className :"col-12 col-sm"}))
 		body = view_service.addNodeSibling(body, fileList);
 		body = view_service.addNodeParent(body, view_service.getElementsFromRegistry(["row","container"]));
 
@@ -124,9 +127,9 @@ module.exports = {
 
 		let newPath = decodeURI(req.path);
 		newPath = newPath.split("/newfolder").pop();
-		newPath = (newPath == "/" || newPath == "") ? global.SERVER_FILES_DIR : newPath;
-		console.log(newPath + req.body.foldername);
-		fs.mkdirSync(path.resolve(newPath + req.body.foldername) , { recursive: true })
+		newPath = newPath.charAt(newPath.length-1) != "/" ? newPath + "/" : newPath;
+		newPath = (newPath == "/" || newPath == "" || newPath == global.ASSETS) ? theme.PUBLIC_FILES_DIR : newPath;
+		fs.mkdirSync('.' + newPath + req.body.foldername, { recursive: true })
 
 		setTimeout(function(){
 
