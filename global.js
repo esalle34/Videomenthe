@@ -13,7 +13,7 @@ let PROJECT_DIR = __dirname;
 let HTML_DIR = __dirname + "\\views\\html\\";
 let BACKEND_MODULE_DIR = "\\operations\\modules\\mandatory";
 let HOME_PATH = "/";
-let ASSETS = "/assets/";
+let ASSETS = "/assets/files/";
 
 //MODULE DIR
 

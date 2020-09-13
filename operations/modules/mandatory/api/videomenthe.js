@@ -14,8 +14,8 @@ module.exports = {
 
 		let filesPath = path.resolve(root_path + req.params[0]).includes(path.resolve(global.SERVER_FILES_DIR)) ? path.resolve(root_path + req.params[0]) : path.resolve(global.SERVER_FILES_DIR);
 		let fileList = getAllFiles(route, filesPath);
-		(req.params[0].length==0 || req.params[0] == global.ASSETS) ? null : fileList.unshift(folderTpl(route, filesPath.split(filesPath.split("\\").pop())[0], route.i18n.translate("Back", route.lang)));
-		let h1 = view_service.addLogoAsH1("Test technique | Videomenthe");
+		(req.params[0].length==0) ? null : fileList.unshift(folderTpl(route, filesPath.split(filesPath.split("\\").pop())[0], route.i18n.translate("Back", route.lang)));
+		let h1 = view_service.addLogoAsH1(global.TITLE);
 		
 		let file_inputs = form_service.addMultipleFormInput([{libelle : "text", name: "file", type: "file", label : route.i18n.translate("Add file here", route.lang), groupClassName:"col-12", className:"form-control custom-file-input", labelClassName : "custom-file-label", placeholder : route.i18n.translate("Add file here", route.lang)},
 			{libelle : "validate", name:"submit", type: "submit", className:"submit btn btn-primary",groupClassName : "col", label : route.i18n.translate("Send", route.lang)}])
@@ -128,7 +128,7 @@ module.exports = {
 		let newPath = decodeURI(req.path);
 		newPath = newPath.split("/newfolder").pop();
 		newPath = newPath.charAt(newPath.length-1) != "/" ? newPath + "/" : newPath;
-		newPath = (newPath == "/" || newPath == "" || newPath == global.ASSETS) ? theme.PUBLIC_FILES_DIR : newPath;
+		newPath = (newPath == "/" || newPath == "") ? theme.PUBLIC_FILES_DIR : newPath;
 		fs.mkdirSync('.' + newPath + req.body.foldername, { recursive: true })
 
 		setTimeout(function(){
@@ -147,6 +147,8 @@ module.exports = {
 	},
 
 	folderTpl : (route, filesPath, file)=>{
+
+		console.log(file);
 
 		let tpl = {
 
@@ -212,8 +214,8 @@ module.exports = {
 						key : "folder-row-"+file,
 
 					},
-					react_nested : [{
-
+					react_nested : file != route.i18n.translate("Back", route.lang) ? 
+					[{
 						react_element : "a",
 						args : {
 
@@ -223,8 +225,7 @@ module.exports = {
 							els : route.i18n.translate("Remove", route.lang)
 
 						}
-
-					}]
+					}] : "",
 
 
 				}]
