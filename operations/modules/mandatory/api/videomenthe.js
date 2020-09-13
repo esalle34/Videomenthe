@@ -148,8 +148,6 @@ module.exports = {
 
 	folderTpl : (route, filesPath, file)=>{
 
-		console.log(file);
-
 		let tpl = {
 
 			react_element : "div",
